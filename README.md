@@ -5,7 +5,7 @@ Welcome to the Best Commerce API test project for WSWork. This is a Spring Boot 
 ## Documentation
 
 You can access the API documentation via Swagger at the following URL:
-- [Swagger Documentation](http://localhost:8083/swagger-ui/index.html#)
+- [Swagger Documentation] (http://localhost:8083/swagger-ui/index.html#)
 
 ## Getting Started
 
