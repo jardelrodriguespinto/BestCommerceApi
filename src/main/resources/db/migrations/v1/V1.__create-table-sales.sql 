@@ -1,0 +1,6 @@
+CREATE TABLE sales (
+    id SERIAL PRIMARY KEY,
+    customer_id INT,
+    sale_date TIMESTAMP,
+    FOREIGN KEY (customer_id) REFERENCES customer(id)
+);

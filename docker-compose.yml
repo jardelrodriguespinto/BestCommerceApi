@@ -1,0 +1,28 @@
+version: "3"
+services:
+  postgres:
+    image: jardel9159/postgres-wswork-db:1.0
+    container_name: my-postgres-container
+    environment:
+      POSTGRES_DB: commerce-db
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+    ports:
+      - "5434:5432"
+
+  best-commerce-api-test:
+    image: jardel9159/best-commerce-api-test:1.0
+    container_name: best-commerce-api-test-container
+    ports:
+      - "8083:8083"
+    depends_on:
+      - postgres
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/commerce-db
+      SPRING_DATASOURCE_USERNAME: admin
+      SPRING_DATASOURCE_PASSWORD: admin
+      SPRING_FLYWAY_BASELINEONMIGRATE: true
+      SPRING_FLYWAY_URL: jdbc:postgresql://postgres:5432/commerce-db
+      SPRING_FLYWAY_USER: admin
+      SPRING_FLYWAY_PASSWORD: admin
+      SPRING_FLYWAY_LOCATIONS: classpath:db/migration/v1
